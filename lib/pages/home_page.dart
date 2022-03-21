@@ -18,7 +18,8 @@ class HomePage extends StatelessWidget {
           width: _deviceWidth,
           // 水平方向のパディングを設定
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: Column( // UIの関数を縦に並べる
+          child: Column(
+            // UIの関数を縦に並べる
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start, // widgetを左寄せにする
@@ -58,19 +59,27 @@ class HomePage extends StatelessWidget {
 
   // ドロップダウンを表示する関数
   Widget _destionationDropDownWidget() {
-    List<DropdownMenuItem<String>> _items = [
+    List<String> _items = [
       'James Webb Station',
       'Preneure Station',
-    ].map((e) {
-      return DropdownMenuItem(
-        child: Text(e),
-        value: e,
-      );
-    }).toList();
+    ];
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: _deviceHeght * 0.05),
+      width: _deviceWidth,
+      decoration: BoxDecoration(color: const Color.fromRGBO(53, 53, 53, 1.0),
+      borderRadius: BorderRadius.circular(10)),
       child: DropdownButton(
+        value: _items.first,
         onChanged: (_) {},
-        items: _items,
+        items: _items.map((e) {
+          return DropdownMenuItem(
+            child: Text(e),
+            value: e,
+          );
+        }).toList(),
+        underline: Container(),
+        dropdownColor: const Color.fromRGBO(53, 53, 53, 1.0),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }
