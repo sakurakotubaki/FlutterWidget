@@ -26,8 +26,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start, // widgetを左寄せにする
             children: [
               _pageTitle(),
-              _destionationDropDownWidget(),
-              _travellersInformationWidget(),
+              _bookRideWidget(),
             ],
           ),
         ),
@@ -59,14 +58,28 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  // bookWidget
+  Widget _bookRideWidget() {
+    return Container(
+      height: _deviceHeght * 0.25,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _destionationDropDownWidget(),
+          _travellersInformationWidget()
+        ],
+      ),
+    );
+  }
+
   // ドロップダウンを表示する関数
   Widget _destionationDropDownWidget() {
     return CustomDropDownButtonClass(values: const [
       'James Webb Station',
       'Preneure Station',
-    ],
-    width: _deviceWidth
-    );
+    ], width: _deviceWidth);
   }
 
   // 旅行情報を表示する関数
@@ -77,21 +90,13 @@ class HomePage extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        CustomDropDownButtonClass(values: const [
-          '1',
-          '2',
-          '3',
-          '4'
-        ],
-        width: _deviceWidth * 0.45,
+        CustomDropDownButtonClass(
+          values: const ['1', '2', '3', '4'],
+          width: _deviceWidth * 0.45,
         ),
-        CustomDropDownButtonClass(values: const [
-          'Economy',
-          'Business',
-          'First',
-          'Private'
-        ],
-        width: _deviceWidth * 0.40,
+        CustomDropDownButtonClass(
+          values: const ['Economy', 'Business', 'First', 'Private'],
+          width: _deviceWidth * 0.40,
         ),
       ],
     );
