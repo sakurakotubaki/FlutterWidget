@@ -19,14 +19,23 @@ class HomePage extends StatelessWidget {
           width: _deviceWidth,
           // 水平方向のパディングを設定
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: Column(
-            // UIの関数を縦に並べる
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start, // widgetを左寄せにする
+          child: Stack(
             children: [
-              _pageTitle(),
-              _bookRideWidget(),
+              Column(
+                // UIの関数を縦に並べる
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start, // widgetを左寄せにする
+                children: [
+                  _pageTitle(),
+                  _bookRideWidget(),
+                ],
+              ),
+              // 画像を中央右寄りにする
+              Align(
+                alignment: Alignment.centerRight,
+                child: _astroImageWidget(),
+              ),
             ],
           ),
         ),
@@ -49,6 +58,9 @@ class HomePage extends StatelessWidget {
   // 画像を表示する関数
   Widget _astroImageWidget() {
     return Container(
+      // 画像の縦と横のサイズを調整
+      height: _deviceHeght * 0.50,
+      width: _deviceWidth * 0.65,
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
@@ -108,8 +120,17 @@ class HomePage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(bottom: _deviceHeght * 0.01),
       width: _deviceWidth,
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10),),
-      child: MaterialButton(onPressed: (){}, child: const Text("Bookride!", style: TextStyle(color: Colors.black),),),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: MaterialButton(
+        onPressed: () {},
+        child: const Text(
+          "Bookride!",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
     );
   }
 }
