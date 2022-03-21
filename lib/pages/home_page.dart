@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
             children: [
               _pageTitle(),
               _destionationDropDownWidget(),
+              _travellersInformationWidget(),
             ],
           ),
         ),
@@ -64,6 +65,19 @@ class HomePage extends StatelessWidget {
       'James Webb Station',
       'Preneure Station',
     ],
-    width: _deviceWidth);
+    width: _deviceWidth
+    );
+  }
+
+  // 旅行情報を表示する関数
+  Widget _travellersInformationWidget() {
+    return CustomDropDownButtonClass(values: const [
+      '1',
+      '2',
+      '3',
+      '4'
+    ],
+    width: _deviceWidth * 0.45,
+    );
   }
 }
