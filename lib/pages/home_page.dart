@@ -71,13 +71,29 @@ class HomePage extends StatelessWidget {
 
   // 旅行情報を表示する関数
   Widget _travellersInformationWidget() {
-    return CustomDropDownButtonClass(values: const [
-      '1',
-      '2',
-      '3',
-      '4'
-    ],
-    width: _deviceWidth * 0.45,
+    return Row(
+      // ドロップダウンボタンの間にスペースを作る
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CustomDropDownButtonClass(values: const [
+          '1',
+          '2',
+          '3',
+          '4'
+        ],
+        width: _deviceWidth * 0.45,
+        ),
+        CustomDropDownButtonClass(values: const [
+          'Economy',
+          'Business',
+          'First',
+          'Private'
+        ],
+        width: _deviceWidth * 0.40,
+        ),
+      ],
     );
   }
 }
