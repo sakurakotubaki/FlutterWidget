@@ -18,7 +18,15 @@ class HomePage extends StatelessWidget {
           width: _deviceWidth,
           // 水平方向のパディングを設定
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: _destionationDropDownWidget(),
+          child: Column( // UIの関数を縦に並べる
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start, // widgetを左寄せにする
+            children: [
+              _pageTitle(),
+              _destionationDropDownWidget(),
+            ],
+          ),
         ),
       ),
     );
