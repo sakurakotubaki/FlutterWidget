@@ -68,7 +68,8 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _destionationDropDownWidget(),
-          _travellersInformationWidget()
+          _travellersInformationWidget(),
+          _rideButton(),
         ],
       ),
     );
@@ -99,6 +100,15 @@ class HomePage extends StatelessWidget {
           width: _deviceWidth * 0.40,
         ),
       ],
+    );
+  }
+
+  // 読むボタン
+  Widget _rideButton() {
+    return Container(
+      width: _deviceWidth,
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10),),
+      child: MaterialButton(onPressed: (){}, child: const Text("Bookride!", style: TextStyle(color: Colors.black),),),
     );
   }
 }
