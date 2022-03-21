@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_moon/pages/widgets/custom_dropwown_button.dart';
 
 class HomePage extends StatelessWidget {
   // 幅と高さの変数
@@ -59,28 +60,10 @@ class HomePage extends StatelessWidget {
 
   // ドロップダウンを表示する関数
   Widget _destionationDropDownWidget() {
-    List<String> _items = [
+    return CustomDropDownButtonClass(values: const [
       'James Webb Station',
       'Preneure Station',
-    ];
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: _deviceHeght * 0.05),
-      width: _deviceWidth,
-      decoration: BoxDecoration(color: const Color.fromRGBO(53, 53, 53, 1.0),
-      borderRadius: BorderRadius.circular(10)),
-      child: DropdownButton(
-        value: _items.first,
-        onChanged: (_) {},
-        items: _items.map((e) {
-          return DropdownMenuItem(
-            child: Text(e),
-            value: e,
-          );
-        }).toList(),
-        underline: Container(),
-        dropdownColor: const Color.fromRGBO(53, 53, 53, 1.0),
-        style: const TextStyle(color: Colors.white),
-      ),
-    );
+    ],
+    width: _deviceWidth);
   }
 }
