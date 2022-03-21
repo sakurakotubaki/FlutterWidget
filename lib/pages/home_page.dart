@@ -106,6 +106,7 @@ class HomePage extends StatelessWidget {
   // 読むボタン
   Widget _rideButton() {
     return Container(
+      padding: EdgeInsets.only(bottom: _deviceHeght * 0.01),
       width: _deviceWidth,
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10),),
       child: MaterialButton(onPressed: (){}, child: const Text("Bookride!", style: TextStyle(color: Colors.black),),),
