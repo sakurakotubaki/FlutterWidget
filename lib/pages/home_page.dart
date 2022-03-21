@@ -11,18 +11,20 @@ class HomePage extends StatelessWidget {
     _deviceHeght = MediaQuery.of(context).size.height; // 高さを設定
     _deviceWidth = MediaQuery.of(context).size.width; // 幅を設定
     return Scaffold(
-      body: SafeArea( // iPhone13の画面に対応
+      body: SafeArea(
+        // iPhone13の画面に対応
         child: Container(
           height: _deviceHeght,
           width: _deviceWidth,
           // 水平方向のパディングを設定
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: _pageTitle(),
+          child: _destionationDropDownWidget(),
         ),
       ),
     );
   }
 
+  // タイトルを表示する関数
   Widget _pageTitle() {
     return const Text(
       "#GoMoon",
@@ -42,6 +44,25 @@ class HomePage extends StatelessWidget {
           fit: BoxFit.fill,
           image: AssetImage("assets/images/astro_moon.png"),
         ),
+      ),
+    );
+  }
+
+  // ドロップダウンを表示する関数
+  Widget _destionationDropDownWidget() {
+    List<DropdownMenuItem<String>> _items = [
+      'James Webb Station',
+      'Preneure Station',
+    ].map((e) {
+      return DropdownMenuItem(
+        child: Text(e),
+        value: e,
+      );
+    }).toList();
+    return Container(
+      child: DropdownButton(
+        onChanged: (_) {},
+        items: _items,
       ),
     );
   }
